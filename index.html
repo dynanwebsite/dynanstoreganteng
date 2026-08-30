@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynan Store - Slide 1 & 2</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            padding: 20px;
+        }
+
+        /* SLIDE CONTAINER */
+        .slides-wrapper {
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 32px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            background: #ffffff;
+        }
+
+        .slides-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 200%;
+        }
+
+        .slide {
+            background: #ffffff;
+            width: 50%;
+            padding: 30px 24px 30px;
+            min-height: 600px;
+        }
+
+        /* ===== SLIDE 1 ===== */
+        .store-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .store-logo {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .store-name h1 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1a1a2e;
+        }
+
+        .store-name .badge {
+            font-size: 12px;
+            background: #eef2ff;
+            color: #4f46e5;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 2px;
+        }
+
+        /* RATING */
+        .rating-section {
+            background: #f8fafc;
+            border-radius: 18px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 12px 0 16px;
+            border: 1px solid #e9edf4;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .rating-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rating-stars {
+            color: #fbbf24;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        .rating-number {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .rating-number small {
+            font-weight: 400;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .rating-right {
+            text-align: right;
+        }
+
+        .rating-right .ulasan-count {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .rating-right .label-ulasan {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .rating-right .today-update {
+            font-size: 11px;
+            color: #22c55e;
+            background: #dcfce7;
+            padding: 2px 10px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+        /* PRODUK HARI INI */
+        .product-section {
+            margin: 18px 0 20px;
+        }
+
+        .product-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .product-label h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .product-label .date-badge {
+            font-size: 13px;
+            color: #4f46e5;
+            background: #eef2ff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+            border-radius: 20px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 2px solid #ede9fe;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            border-color: #a78bfa;
+            transform: scale(1.01);
+        }
+
+        .product-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #a78bfa, #7c3aed);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-info h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .product-info p {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        .product-info .price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #7c3aed;
+            margin-top: 4px;
+        }
+
+        .btn-beli {
+            background: #7c3aed;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-beli:hover {
+            background: #5b21b6;
+            transform: scale(1.05);
+        }
+
+        /* ULASAN */
+        .ulasan-section {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e9edf4;
+        }
+
+        .ulasan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .ulasan-header h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .ulasan-header span {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .ulasan-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: #f8fafc;
+            padding: 12px 14px;
+            border-radius: 14px;
+            margin-bottom: 8px;
+        }
+
+        .ulasan-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .ulasan-body {
+            flex: 1;
+        }
+
+        .ulasan-body .nama {
+            font-weight: 700;
+            font-size: 14px;
+            color: #0f172a;
+        }
+
+        .ulasan-body .bintang {
+            color: #fbbf24;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .ulasan-body .teks {
+            font-size: 13px;
+            color: #475569;
+            margin-top: 2px;
+            line-height: 1.4;
+        }
+
+        .ulasan-body .waktu {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
+        /* ===== SLIDE 2 ===== */
+        .slide2-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9edf4;
+        }
+
+        .slide2-header h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1a1a2e;
+        }
+
+        .slide2-header h2 i {
+            color: #7c3aed;
+        }
+
+        .slide2-header .back-btn {
+            background: #f1f5f9;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 13px;
+        }
+
+        .slide2-header .back-btn:hover {
+            background: #e2e8f0;
+        }
+
+        /* GRID PRODUK KOSONG */
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .product-grid::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .product-grid::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        .grid-item {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 30px 12px;
+            text-align: center;
+            border: 2px dashed #cbd5e1;
+            color: #94a3b8;
+            font-size: 14px;
+            font-weight: 600;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .grid-item .empty-icon {
+            font-size: 40px;
+            opacity: 0.5;
+        }
+
+        .grid-item .empty-text {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* TOMBOL PRODUK (pindah slide) */
+        .btn-produk {
+            background: #7c3aed;
+            color: #fff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-produk:hover {
+            background: #5b21b6;
+            transform: scale(1.02);
+        }
+
+        .btn-produk i {
+            font-size: 18px;
+        }
+
+        /* NAVIGASI */
+        .slide-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .slide-nav .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .slide-nav .dot.active {
+            background: #7c3aed;
+            width: 28px;
+            border-radius: 20px;
+        }
+
+        .slide-nav .dot:hover {
+            background: #a78bfa;
+        }
+
+        .footer-info {
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-info i {
+            color: #f43f5e;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- SLIDES WRAPPER -->
+    <!-- ========================================== -->
+    <div class="slides-wrapper">
+        <div class="slides-track" id="slidesTrack">
+
+            <!-- ============================ -->
+            <!-- SLIDE 1 -->
+            <!-- ============================ -->
+            <div class="slide" id="slide1">
+
+                <div class="store-header">
+                    <div class="store-logo">D</div>
+                    <div class="store-name">
+                        <h1>Dynan Store</h1>
+                        <span class="badge"><i class="fas fa-check-circle"></i> Official Store</span>
+                    </div>
+                </div>
+
+                <div class="rating-section" id="ratingSection">
+                    <div class="rating-left">
+                        <div class="rating-stars" id="starsDisplay">★★★★★</div>
+                        <div class="rating-number" id="ratingNumber">4.8 <small>/ 5</small></div>
+                    </div>
+                    <div class="rating-right">
+                        <div class="ulasan-count" id="ulasanCount">1.234</div>
+                        <div class="label-ulasan">Ulasan</div>
+                        <div class="today-update" id="todayUpdate">⬆ +12 hari ini</div>
+                    </div>
+                </div>
+
+                <div class="product-section">
+                    <div class="product-label">
+                        <h3><i class="fas fa-calendar-day" style="color:#7c3aed;"></i> Produk Hari Ini</h3>
+                        <span class="date-badge" id="dateBadge">📅 -- --- ----</span>
+                    </div>
+
+                    <div class="product-card" id="productCard">
+                        <div class="product-icon" id="productIcon">❓</div>
+                        <div class="product-info">
+                            <h4 id="productName">Belum Ada Produk</h4>
+                            <p id="productDesc">Silakan tambahkan produk</p>
+                            <div class="price" id="productPrice">Rp 0</div>
+                        </div>
+                        <button class="btn-beli" onclick="alert('Keranjang kosong! 🛒')">
+                            <i class="fas fa-cart-plus"></i> Beli
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TOMBOL PRODUK KE SLIDE 2 -->
+                <button class="btn-produk" onclick="goToSlide(1)">
+                    <i class="fas fa-boxes"></i> Produk
+                </button>
+
+                <div class="ulasan-section">
+                    <div class="ulasan-header">
+                        <h4><i class="fas fa-comment-dots" style="color:#7c3aed;"></i> Ulasan Terbaru</h4>
+                        <span id="ulasanTime">Baru saja</span>
+                    </div>
+
+                    <div class="ulasan-item" id="ulasanItem">
+                        <div class="ulasan-avatar" id="ulasanAvatar">?</div>
+                        <div class="ulasan-body">
+                            <div class="nama" id="ulasanNama">Belum Ada Ulasan</div>
+                            <div class="bintang" id="ulasanBintang">☆☆☆☆☆</div>
+                            <div class="teks" id="ulasanTeks">Belum ada ulasan</div>
+                            <div class="waktu" id="ulasanWaktu">--:--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-nav">
+                    <button class="dot active" onclick="goToSlide(0)"></button>
+                    <button class="dot" onclick="goToSlide(1)"></button>
+                    <button class="dot" onclick="goToSlide(2)"></button>
+                    <button class="dot" onclick="goToSlide(3)"></button>
+                    <button class="dot" onclick="goToSlide(4)"></button>
+                    <button class="dot" onclick="goToSlide(5)"></button>
+                </div>
+
+                <div class="footer-info">
+                    <i class="fas fa-sync-alt fa-fw"></i> Rating & ulasan bertambah otomatis setiap hari
+                </div>
+            </div>
+
+            <!-- ============================ -->
+            <!-- SLIDE 2 - PRODUK KOSONG -->
+            <!-- ============================ -->
+            <div class="slide" id="slide2">
+
+                <div class="slide2-header">
+                    <h2><i class="fas fa-boxes"></i> Produk Dynan Store</h2>
+                    <button class="back-btn" onclick="goToSlide(0)">
+                        <i class="fas fa-arrow-left"></i> Kembali
+                    </button>
+                </div>
+
+                <!-- GRID PRODUK KOSONG (16 slot siap diisi) -->
+                <div class="product-grid" id="productGrid">
+                    <!-- 16 slot kosong dari JavaScript -->
+                </div>
+
+                <div class="slide-nav" style="margin-top: 18px;">
+                    <button class="dot" onclick="goToSlide(0)"></button>
+                    <button class="dot active" onclick="goToSlide(1)"></button>
+                    <button class="dot" onclick="goToSlide(2)"></button>
+                    <button class="dot" onclick="goToSlide(3)"></button>
+                    <button class="dot" onclick="goToSlide(4)"></button>
+                    <button class="dot" onclick="goToSlide(5)"></button>
+                </div>
+
+                <div class="footer-info">
+                    <i class="fas fa-store"></i> Total produk: <span id="totalProduk">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================================== -->
+    <script>
+        // ==========================================
+        // DATA PRODUK KOSONG (ISI SENDIRI)
+        // ==========================================
+        const products = [
+            // Contoh format:
+            // { icon: '👕', name: 'Nama Produk', price: 'Rp 100.000' },
+            // { icon: '👗', name: 'Nama Produk 2', price: 'Rp 200.000' },
+            // ... tambahkan sendiri
+        ];
+
+        // ==========================================
+        // DATA ULASAN KOSONG (ISI SENDIRI)
+        // ==========================================
+        const ulasanList = [
+            // Contoh format:
+            // { nama: 'Nama Pembeli', bintang: '★★★★★', teks: 'Ulasan bagus' },
+        ];
+
+        // ==========================================
+        // FUNGSI TANGGAL
+        // ==========================================
+
+        function formatDate(date) {
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+            return `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+        }
+
+        function getDayOfYear(date) {
+            const start = new Date(date.getFullYear(), 0, 0);
+            const diff = date - start;
+            return Math.floor(diff / (1000 * 60 * 60 * 24));
+        }
+
+        // ==========================================
+        // UPDATE SLIDE 1
+        // ==========================================
+
+        function updateSlide1() {
+            const now = new Date();
+            const dayOfYear = getDayOfYear(now);
+
+            // Rating & Ulasan (bertambah otomatis)
+            const baseRating = products.length > 0 ? 4.7 : 0;
+            const baseUlasan = products.length > 0 ? 100 : 0;
+            const tambahan = dayOfYear * 0.03;
+            const tambahanUlasan = dayOfYear * 8;
+
+            const rating = products.length > 0 ? Math.min(5, baseRating + tambahan) : 0;
+            const ulasan = products.length > 0 ? Math.floor(baseUlasan + tambahanUlasan) : 0;
+
+            document.getElementById('ratingNumber').innerHTML = `${rating.toFixed(1)} <small>/ 5</small>`;
+            document.getElementById('ulasanCount').textContent = ulasan.toLocaleString('id-ID');
+
+            const fullStars = Math.round(rating);
+            const stars = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+            document.getElementById('starsDisplay').textContent = products.length > 0 ? stars : '☆☆☆☆☆';
+
+            const todayUlasan = products.length > 0 ? Math.floor(8 + (dayOfYear % 5)) : 0;
+            document.getElementById('todayUpdate').textContent =
+                products.length > 0 ? `⬆ +${todayUlasan} hari ini` : 'Belum ada ulasan';
+
+            // Produk Hari Ini
+            if (products.length > 0) {
+                const productIndex = dayOfYear % products.length;
+                const product = products[productIndex];
+                document.getElementById('productIcon').textContent = product.icon || '📦';
+                document.getElementById('productName').textContent = product.name || 'Produk';
+                document.getElementById('productDesc').textContent = `Produk pilihan ${formatDate(now)}`;
+                document.getElementById('productPrice').textContent = product.price || 'Rp 0';
+            } else {
+                document.getElementById('productIcon').textContent = '❓';
+                document.getElementById('productName').textContent = 'Belum Ada Produk';
+                document.getElementById('productDesc').textContent = 'Silakan tambahkan produk';
+                document.getElementById('productPrice').textContent = 'Rp 0';
+            }
+
+            document.getElementById('dateBadge').textContent = `📅 ${formatDate(now)}`;
+
+            // Ulasan
+            if (ulasanList.length > 0) {
+                const ulasanIndex = dayOfYear % ulasanList.length;
+                const ulasan = ulasanList[ulasanIndex];
+                document.getElementById('ulasanAvatar').textContent = ulasan.nama.charAt(0) || '?';
+                document.getElementById('ulasanNama').textContent = ulasan.nama || 'Anonim';
+                document.getElementById('ulasanBintang').textContent = ulasan.bintang || '☆☆☆☆☆';
+                document.getElementById('ulasanTeks').textContent = ulasan.teks || 'Belum ada ulasan';
+            } else {
+                document.getElementById('ulasanAvatar').textContent = '?';
+                document.getElementById('ulasanNama').textContent = 'Belum Ada Ulasan';
+                document.getElementById('ulasanBintang').textContent = '☆☆☆☆☆';
+                document.getElementById('ulasanTeks').textContent = 'Belum ada ulasan';
+            }
+
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.getElementById('ulasanWaktu').textContent = `${hours}:${minutes} - ${formatDate(now)}`;
+            document.getElementById('ulasanTime').textContent = 'Baru saja diperbarui';
+        }
+
+        // ==========================================
+        // RENDER SLIDE 2 - GRID KOSONG
+        // ==========================================
+
+        function renderProductGrid() {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+
+            if (products.length === 0) {
+                // Tampilkan 16 slot kosong
+                for (let i = 0; i < 16; i++) {
+                    const div = document.createElement('div');
+                    div.className = 'grid-item';
+                    div.innerHTML = `
+                        <div class="empty-icon">📦</div>
+                        <div class="empty-text">Kosong</div>
+                    `;
+                    grid.appendChild(div);
+                }
+            } else {
+                // Tampilkan produk yang ada
+                products.forEach((p) => {
+                    const div = document.createElement('div');
+                    div.className = 'grid-item';
+                    div.style.border = '1px solid #e9edf4';
+                    div.style.borderStyle = 'solid';
+                    div.innerHTML = `
+                        <div style="font-size:36px;">${p.icon || '📦'}</div>
+                        <div style="font-size:13px;font-weight:700;color:#1e293b;">${p.name || 'Produk'}</div>
+                        <div style="font-size:14px;font-weight:800;color:#7c3aed;">${p.price || 'Rp 0'}</div>
+                        <button class="g-btn" onclick="alert('${p.name || 'Produk'} ditambahkan ke keranjang! 🛒')" style="margin-top:8px;background:#7c3aed;color:#fff;border:none;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;">
+                            <i class="fas fa-cart-plus"></i> Beli
+                        </button>
+                    `;
+                    grid.appendChild(div);
+                });
+            }
+
+            document.getElementById('totalProduk').textContent = products.length;
+        }
+
+        // ==========================================
+        // NAVIGASI SLIDE
+        // ==========================================
+
+        let currentSlide = 0;
+        const totalSlides = 6;
+
+        function goToSlide(index) {
+            if (index < 0 || index >= totalSlides) return;
+            currentSlide = index;
+            const track = document.getElementById('slidesTrack');
+            track.style.transform = `translateX(-${index * 50}%)`;
+
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // ==========================================
+        // INIT
+        // ==========================================
+
+        updateSlide1();
+        renderProductGrid();
+
+        setInterval(() => {
+            updateSlide1();
+        }, 60000);
+    </script>
+</body>
+</html>
