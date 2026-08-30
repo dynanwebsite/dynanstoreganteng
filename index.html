@@ -520,6 +520,17 @@
             font-weight: 500;
         }
 
+        .rating-right .today-update {
+            font-size: 11px;
+            color: #22c55e;
+            background: #dcfce7;
+            padding: 2px 10px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
         .product-section {
             margin: 16px 0 10px;
         }
@@ -1292,7 +1303,6 @@
             color: #4f46e5;
         }
 
-        /* QRIS Image - KECIL & PROPORSIONAL */
         #qrisImage {
             margin-top: 8px;
         }
@@ -1465,13 +1475,11 @@
             <h3><i class="fas fa-credit-card" style="color:#7c3aed;"></i> Pilih Metode Pembayaran</h3>
             <p class="subtitle">Pilih metode lalu konfirmasi ke WhatsApp</p>
 
-            <!-- DANA -->
             <button class="btn-metode" id="btnDana" onclick="pilihMetode('dana')">
                 <span class="icon-dana"><i class="fas fa-wallet"></i></span>
                 DANA - 082381531460
             </button>
 
-            <!-- QRIS -->
             <button class="btn-metode" id="btnQris" onclick="pilihMetode('qris')">
                 <span class="icon-qris"><i class="fas fa-qrcode"></i></span>
                 QRIS (Scan di bawah)
@@ -1479,7 +1487,6 @@
 
             <div id="detailMetode"></div>
 
-            <!-- QRIS Image - KECIL -->
             <div id="qrisImage" style="display:none;">
                 <div class="qr-placeholder">
                     <img src="https://i.ibb.co.com/8L2B5p0p/qr-ID1025435087404-31-08-26-1788124804-1788124804995.jpg" 
@@ -1490,7 +1497,6 @@
                 </div>
             </div>
 
-            <!-- Tombol WA -->
             <button class="btn-wa" id="btnWa" disabled onclick="confirmWA()">
                 <i class="fab fa-whatsapp"></i> Konfirmasi Via WhatsApp
             </button>
@@ -1531,6 +1537,7 @@
                     <div class="rating-right">
                         <div class="ulasan-count" id="ulasanCount">0</div>
                         <div class="label-ulasan">Ulasan</div>
+                        <div class="today-update" id="todayUpdate">⬆ +0 hari ini</div>
                     </div>
                 </div>
 
@@ -1784,6 +1791,32 @@
     <!-- ========================================== -->
     <script>
         // ==========================================
+        // DATA ULASAN BAWAAN (AKAN BERTAMBAH SETIAP HARI)
+        // ==========================================
+        const ulasanBawaan = [
+            { nama: 'Andi Pratama', rating: 5, teks: 'Produknya keren banget! Pengiriman cepat. Recomended!' },
+            { nama: 'Siti Rahayu', rating: 4, teks: 'Bagus cuma ukuran agak besar. Overall ok.' },
+            { nama: 'Budi Santoso', rating: 5, teks: 'Mantap! Akan beli lagi nanti.' },
+            { nama: 'Dewi Lestari', rating: 5, teks: 'Sesuai ekspektasi, kualitas oke.' },
+            { nama: 'Rizky Fadillah', rating: 4, teks: 'Cepat sampai, packing aman.' },
+            { nama: 'Maya Anggraini', rating: 5, teks: 'Pelayanan ramah, produk original.' },
+            { nama: 'Fajar Nugroho', rating: 5, teks: 'Harga bersaing, kualitas juara!' },
+            { nama: 'Rina Wulandari', rating: 4, teks: 'Bagus, cuma agak mahal.' },
+            { nama: 'Doni Saputra', rating: 5, teks: 'Gak nyesel beli disini!' },
+            { nama: 'Nia Kurnia', rating: 5, teks: 'Recommended seller! 👍' },
+            { nama: 'Taufik Hidayat', rating: 4, teks: 'Produk original, pelayanan cepat.' },
+            { nama: 'Siska Pratiwi', rating: 5, teks: 'Barang sesuai gambar, recomended!' },
+            { nama: 'Rudi Hartono', rating: 4, teks: 'Mantap, cuma lama dikit.' },
+            { nama: 'Lina Marlina', rating: 5, teks: 'Makasih banyak, produknya bagus!' },
+            { nama: 'Agus Salim', rating: 5, teks: 'Kualitas terbaik, harga terjangkau.' },
+            { nama: 'Tina Toeng', rating: 4, teks: 'Oke lah, cuma packing kurang.' },
+            { nama: 'Bayu Saputra', rating: 5, teks: 'Sangat puas! Akan repeat order.' },
+            { nama: 'Putri Ayu', rating: 5, teks: 'Keren banget, sesuai ekspektasi.' },
+            { nama: 'Gilang Ramadhan', rating: 4, teks: 'Bagus, harga bersaing.' },
+            { nama: 'Mega Permata', rating: 5, teks: 'Top banget! Pengiriman cepat.' },
+        ];
+
+        // ==========================================
         // NAVIGASI SLIDE
         // ==========================================
         let currentSlide = 0;
@@ -1819,43 +1852,150 @@
         }
 
         // ==========================================
-        // SLIDE 1 - UPDATE
+        // FUNGSI TANGGAL
         // ==========================================
-        function updateSlide1() {
-            const now = new Date();
-            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
-            const dateStr = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
-
-            document.getElementById('dateBadge').textContent = `📅 ${dateStr}`;
-
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            document.getElementById('ulasanWaktu').textContent = `${hours}:${minutes} - ${dateStr}`;
-
-            const products = [
-                { icon: '🎬', name: 'Alight Motion Prem 1 Tahun', desc: 'Prem 1 Tahun • Unlock All Fitur',
-                price: 'Rp 5.000' },
-                { icon: '🤖', name: 'Sewa Bot Grup', desc: 'Bot fast respon • All fitur lengkap', price: 'Rp 15.000/bulan' },
-            ];
-            const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-            const productIndex = dayOfYear % products.length;
-            const product = products[productIndex];
-
-            document.getElementById('productIcon').textContent = product.icon;
-            document.getElementById('productName').textContent = product.name;
-            document.getElementById('productDesc').textContent = product.desc;
-            document.getElementById('productPrice').textContent = product.price;
+        function getDayOfYear(date) {
+            const start = new Date(date.getFullYear(), 0, 0);
+            const diff = date - start;
+            return Math.floor(diff / (1000 * 60 * 60 * 24));
         }
 
-        updateSlide1();
+        function formatDate(date) {
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+            return `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+        }
+
+        function formatTime(date) {
+            return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+        }
 
         // ==========================================
-        // ULASAN & RATING
+        // ULASAN & RATING (OTOMATIS BERTAMBAH)
         // ==========================================
-        let selectedRating = 0;
         let ulasanData = [];
+        let selectedRating = 0;
 
+        function generateUlasanOtomatis() {
+            const now = new Date();
+            const dayOfYear = getDayOfYear(now);
+
+            // Berapa ulasan yang sudah muncul (1 per hari, mulai dari hari ke-0)
+            const totalUlasanMuncul = Math.min(dayOfYear + 1, ulasanBawaan.length);
+
+            // Ambil ulasan sesuai tanggal
+            const ulasanMuncul = [];
+            for (let i = 0; i < totalUlasanMuncul; i++) {
+                const data = ulasanBawaan[i % ulasanBawaan.length];
+                // Tanggal ulasan: hari ke-i dari sekarang
+                const tgl = new Date(now);
+                tgl.setDate(tgl.getDate() - (totalUlasanMuncul - 1 - i));
+                ulasanMuncul.push({
+                    nama: data.nama,
+                    rating: data.rating,
+                    teks: data.teks,
+                    waktu: `${formatTime(tgl)} - ${formatDate(tgl)}`
+                });
+            }
+
+            return ulasanMuncul;
+        }
+
+        function renderUlasan(ulasanList) {
+            const container = document.getElementById('ulasanList');
+            container.innerHTML = '';
+
+            if (!ulasanList || ulasanList.length === 0) {
+                container.innerHTML = `
+                    <div class="ulasan-item">
+                        <div class="ulasan-avatar">?</div>
+                        <div class="ulasan-body">
+                            <div class="nama">Belum Ada Ulasan</div>
+                            <div class="bintang">☆☆☆☆☆</div>
+                            <div class="teks">Belum ada ulasan</div>
+                            <div class="waktu">--:--</div>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            // Tampilkan 5 ulasan terbaru (terbalik, paling baru di atas)
+            const tampil = [...ulasanList].reverse().slice(0, 5);
+            tampil.forEach((u) => {
+                const div = document.createElement('div');
+                div.className = 'ulasan-item';
+                const bintang = '★'.repeat(u.rating) + '☆'.repeat(5 - u.rating);
+                div.innerHTML = `
+                    <div class="ulasan-avatar">${u.nama.charAt(0).toUpperCase()}</div>
+                    <div class="ulasan-body">
+                        <div class="nama">${u.nama}</div>
+                        <div class="bintang">${bintang}</div>
+                        <div class="teks">${u.teks}</div>
+                        <div class="waktu">${u.waktu}</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function updateRating(ulasanList) {
+            const total = ulasanList.length;
+            if (total === 0) {
+                document.getElementById('ratingNumber').innerHTML = `0.0 <small>/ 5</small>`;
+                document.getElementById('ulasanCount').textContent = '0';
+                document.getElementById('starsDisplay').textContent = '☆☆☆☆☆';
+                return;
+            }
+
+            const totalRating = ulasanList.reduce((sum, u) => sum + u.rating, 0);
+            const avg = totalRating / total;
+            const rounded = Math.round(avg * 10) / 10;
+
+            document.getElementById('ratingNumber').innerHTML = `${rounded.toFixed(1)} <small>/ 5</small>`;
+            document.getElementById('ulasanCount').textContent = total;
+
+            const fullStars = Math.round(avg);
+            const stars = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+            document.getElementById('starsDisplay').textContent = stars;
+        }
+
+        function updateTodayUlasan(ulasanList, date) {
+            const dayOfYear = getDayOfYear(date);
+            const totalHari = dayOfYear + 1;
+            const todayUlasan = Math.min(totalHari, ulasanBawaan.length);
+            document.getElementById('todayUpdate').textContent = `⬆ +${todayUlasan} hari ini`;
+        }
+
+        // ==========================================
+        // INIT ULASAN
+        // ==========================================
+        function initUlasan() {
+            const now = new Date();
+            const ulasanOtomatis = generateUlasanOtomatis();
+
+            // Gabungkan dengan ulasan dari user (disimpan di localStorage)
+            let userUlasan = [];
+            try {
+                const saved = localStorage.getItem('dynanUserUlasan');
+                if (saved) userUlasan = JSON.parse(saved);
+            } catch (e) {}
+
+            // Gabungkan: ulasan user + ulasan otomatis
+            // User ulasan dianggap paling baru
+            ulasanData = [...userUlasan, ...ulasanOtomatis];
+
+            renderUlasan(ulasanData);
+            updateRating(ulasanData);
+            updateTodayUlasan(ulasanData, now);
+
+            // Update waktu terakhir
+            document.getElementById('ulasanTime').textContent = 'Baru saja diperbarui';
+        }
+
+        // ==========================================
+        // KIRIM ULASAN USER
+        // ==========================================
         function setRating(rating) {
             selectedRating = rating;
             document.querySelectorAll('.star-btn').forEach((btn, i) => {
@@ -1878,29 +2018,30 @@
             }
 
             const now = new Date();
-            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
-            const dateStr = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
-            const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-
-            const bintang = '★'.repeat(selectedRating) + '☆'.repeat(5 - selectedRating);
+            const waktu = `${formatTime(now)} - ${formatDate(now)}`;
 
             const ulasanBaru = {
                 nama: nama,
-                bintang: bintang,
+                rating: selectedRating,
                 teks: teks,
-                waktu: `${timeStr} - ${dateStr}`,
-                rating: selectedRating
+                waktu: waktu
             };
 
-            // Simpan ke array
-            ulasanData.unshift(ulasanBaru);
+            // Simpan ke localStorage
+            let userUlasan = [];
+            try {
+                const saved = localStorage.getItem('dynanUserUlasan');
+                if (saved) userUlasan = JSON.parse(saved);
+            } catch (e) {}
+            userUlasan.push(ulasanBaru);
+            localStorage.setItem('dynanUserUlasan', JSON.stringify(userUlasan));
 
-            // Update tampilan
-            renderUlasan();
+            // Update data
+            ulasanData = [...userUlasan, ...generateUlasanOtomatis()];
 
-            // Update rating rata-rata
-            updateRatingRataRata();
+            renderUlasan(ulasanData);
+            updateRating(ulasanData);
+            updateTodayUlasan(ulasanData, now);
 
             // Reset form
             document.getElementById('ulasanNamaInput').value = '';
@@ -1911,62 +2052,27 @@
             alert('Terima kasih atas ulasannya! 🙏');
         }
 
-        function renderUlasan() {
-            const container = document.getElementById('ulasanList');
-            container.innerHTML = '';
+        // ==========================================
+        // SLIDE 1 - UPDATE PRODUK HARI INI
+        // ==========================================
+        function updateSlide1() {
+            const now = new Date();
+            document.getElementById('dateBadge').textContent = `📅 ${formatDate(now)}`;
 
-            if (ulasanData.length === 0) {
-                container.innerHTML = `
-                    <div class="ulasan-item">
-                        <div class="ulasan-avatar">?</div>
-                        <div class="ulasan-body">
-                            <div class="nama">Belum Ada Ulasan</div>
-                            <div class="bintang">☆☆☆☆☆</div>
-                            <div class="teks">Belum ada ulasan</div>
-                            <div class="waktu">--:--</div>
-                        </div>
-                    </div>
-                `;
-                return;
-            }
+            const products = [
+                { icon: '🎬', name: 'Alight Motion Prem 1 Tahun', desc: 'Prem 1 Tahun • Unlock All Fitur',
+                    price: 'Rp 5.000' },
+                { icon: '🤖', name: 'Sewa Bot Grup', desc: 'Bot fast respon • All fitur lengkap',
+                price: 'Rp 15.000/bulan' },
+            ];
+            const dayOfYear = getDayOfYear(now);
+            const productIndex = dayOfYear % products.length;
+            const product = products[productIndex];
 
-            // Tampilkan 5 ulasan terbaru
-            const tampil = ulasanData.slice(0, 5);
-            tampil.forEach((u, index) => {
-                const div = document.createElement('div');
-                div.className = 'ulasan-item';
-                div.innerHTML = `
-                    <div class="ulasan-avatar">${u.nama.charAt(0).toUpperCase()}</div>
-                    <div class="ulasan-body">
-                        <div class="nama">${u.nama}</div>
-                        <div class="bintang">${u.bintang}</div>
-                        <div class="teks">${u.teks}</div>
-                        <div class="waktu">${u.waktu}</div>
-                    </div>
-                `;
-                container.appendChild(div);
-            });
-        }
-
-        function updateRatingRataRata() {
-            const total = ulasanData.length;
-            if (total === 0) {
-                document.getElementById('ratingNumber').innerHTML = `0.0 <small>/ 5</small>`;
-                document.getElementById('ulasanCount').textContent = '0';
-                document.getElementById('starsDisplay').textContent = '☆☆☆☆☆';
-                return;
-            }
-
-            const totalRating = ulasanData.reduce((sum, u) => sum + u.rating, 0);
-            const avg = totalRating / total;
-            const rounded = Math.round(avg * 10) / 10;
-
-            document.getElementById('ratingNumber').innerHTML = `${rounded.toFixed(1)} <small>/ 5</small>`;
-            document.getElementById('ulasanCount').textContent = total;
-
-            const fullStars = Math.round(avg);
-            const stars = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
-            document.getElementById('starsDisplay').textContent = stars;
+            document.getElementById('productIcon').textContent = product.icon;
+            document.getElementById('productName').textContent = product.name;
+            document.getElementById('productDesc').textContent = product.desc;
+            document.getElementById('productPrice').textContent = product.price;
         }
 
         // ==========================================
@@ -2147,11 +2253,8 @@
             }
 
             const now = new Date();
-            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
-            const dateStr =
-                `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
-            const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+            const dateStr = formatDate(now);
+            const timeStr = formatTime(now);
 
             const metodeText = metodePembayaran === 'dana' ? 'DANA (082381531460)' : 'QRIS';
 
@@ -2178,8 +2281,21 @@
             closePayment();
         }
 
+        // ==========================================
+        // INIT
+        // ==========================================
+        updateSlide1();
+        initUlasan();
+
+        // Refresh otomatis setiap 60 detik (biar dinamis)
+        setInterval(() => {
+            updateSlide1();
+            initUlasan();
+        }, 60000);
+
         console.log('✅ Dynan Store siap!');
         console.log('📝 Admin WA: 082381531460');
+        console.log('⭐ Ulasan akan bertambah otomatis setiap hari!');
     </script>
 </body>
 </html>
