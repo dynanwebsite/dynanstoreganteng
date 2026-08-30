@@ -810,7 +810,7 @@
             background: #5b21b6;
         }
 
-        /* ===== SLIDE 3 - ALIGHT MOTION ===== */
+        /* ===== SLIDE 3 - ALIGHT MOTION (KHUSUS AM) ===== */
         .alight-header {
             display: flex;
             align-items: center;
@@ -829,7 +829,7 @@
         }
 
         .alight-header h2 i {
-            color: #f59e0b;
+            color: #7c3aed;
         }
 
         .alight-header .back-btn {
@@ -848,6 +848,7 @@
             background: #e2e8f0;
         }
 
+        /* Pilihan produk AM (hanya 2) */
         .product-option {
             background: #f8fafc;
             border-radius: 18px;
@@ -990,7 +991,7 @@
             transform: scale(1.02);
         }
 
-        /* ===== SLIDE 4 - SEWA BOT ===== */
+        /* ===== SLIDE 4 - SEWA BOT GRUP (KHUSUS BOT) ===== */
         .bot-header {
             display: flex;
             align-items: center;
@@ -1031,39 +1032,36 @@
         .product-bot-card {
             background: #fef3c7;
             border-radius: 18px;
-            padding: 24px 20px;
+            padding: 30px 20px;
             margin-bottom: 14px;
             border: 2px solid #f59e0b;
             transition: 0.2s;
+            text-align: center;
         }
 
         .product-bot-card .bot-icon {
-            font-size: 48px;
-            text-align: center;
+            font-size: 52px;
             display: block;
             margin-bottom: 8px;
         }
 
         .product-bot-card .bot-name {
             font-weight: 700;
-            font-size: 20px;
+            font-size: 22px;
             color: #1a1a2e;
-            text-align: center;
             transition: color 0.3s;
         }
 
         .product-bot-card .bot-price {
             font-weight: 800;
-            font-size: 24px;
+            font-size: 26px;
             color: #f59e0b;
-            text-align: center;
             margin-top: 4px;
         }
 
         .product-bot-card .bot-desc {
-            font-size: 14px;
+            font-size: 15px;
             color: #64748b;
-            text-align: center;
             margin-top: 8px;
             transition: color 0.3s;
         }
@@ -1461,17 +1459,18 @@
             </div>
 
             <!-- ============================ -->
-            <!-- SLIDE 3 - ALIGHT MOTION -->
+            <!-- SLIDE 3 - ALIGHT MOTION (KHUSUS AM) -->
             <!-- ============================ -->
             <div class="slide" id="slide3">
 
                 <div class="alight-header">
-                    <h2><i class="fas fa-video" style="color:#f59e0b;"></i> Alight Motion</h2>
+                    <h2><i class="fas fa-video" style="color:#7c3aed;"></i> Alight Motion</h2>
                     <button class="back-btn" onclick="goToSlide(0)">
                         <i class="fas fa-arrow-left"></i> Kembali
                     </button>
                 </div>
 
+                <!-- HANYA 2 PILIHAN AM -->
                 <div class="product-option active" id="option1" onclick="selectOption(1)">
                     <div class="option-header">
                         <span class="option-name">🎬 Alight Motion Prem 1 Tahun</span>
@@ -1507,7 +1506,7 @@
                         Total: Rp 5.000
                     </div>
 
-                    <button class="btn-payment" onclick="openPayment()">
+                    <button class="btn-payment" onclick="openPaymentAM()">
                         <i class="fas fa-credit-card"></i> Pilih Pembayaran
                     </button>
                 </div>
@@ -1525,7 +1524,7 @@
             </div>
 
             <!-- ============================ -->
-            <!-- SLIDE 4 - SEWA BOT GRUP -->
+            <!-- SLIDE 4 - SEWA BOT GRUP (KHUSUS BOT) -->
             <!-- ============================ -->
             <div class="slide" id="slide4">
 
@@ -1597,8 +1596,6 @@
                 slide: 3 },
         ];
 
-        const ulasanList = [];
-
         // ==========================================
         // NAVIGASI SLIDE
         // ==========================================
@@ -1668,16 +1665,18 @@
             const grid = document.getElementById('productGrid');
             grid.innerHTML = '';
 
+            const slideTargets = [2, 2, 3]; // index 0->slide3(AM), 1->slide3(AM), 2->slide4(Bot)
+
             products.forEach((p, index) => {
                 const div = document.createElement('div');
                 div.className = 'grid-item';
-                const slideTarget = index < 2 ? 2 : 3;
+                const targetSlide = slideTargets[index];
                 div.innerHTML = `
                     <div class="g-icon">${p.icon}</div>
                     <div class="g-name">${p.name}</div>
                     <div class="g-desc">${p.desc}</div>
                     <div class="g-price">${p.price}</div>
-                    <button class="g-btn" onclick="goToSlide(${slideTarget}); 
+                    <button class="g-btn" onclick="goToSlide(${targetSlide}); 
                         ${index < 2 ? `selectOption(${index + 1})` : ''}">
                         <i class="fas fa-cart-plus"></i> Beli
                     </button>
@@ -1691,29 +1690,31 @@
         renderProductGrid();
 
         // ==========================================
-        // SLIDE 3 - ALIGHT MOTION
+        // SLIDE 3 - ALIGHT MOTION (KHUSUS AM)
         // ==========================================
         let selectedOption = 1;
-        const prices = {
+        const pricesAM = {
             1: 5000,
             2: 15000
         };
-        const names = {
+        const namesAM = {
             1: 'Alight Motion Prem 1 Tahun',
             2: 'Reseller Alight Motion'
         };
-        const descs = {
+        const descsAM = {
             1: 'Prem 1 Tahun • Unlock All Fitur',
             2: 'Hak jual kembali (reseller)'
         };
+
+        let isBotPaymentMode = false;
 
         function selectOption(opt) {
             selectedOption = opt;
             document.getElementById('option1').classList.toggle('active', opt === 1);
             document.getElementById('option2').classList.toggle('active', opt === 2);
 
-            document.getElementById('hargaSatuan').textContent = `Rp ${prices[opt].toLocaleString('id-ID')}`;
-            updateTotal();
+            document.getElementById('hargaSatuan').textContent = `Rp ${pricesAM[opt].toLocaleString('id-ID')}`;
+            updateTotalAM();
         }
 
         function updateJumlah(delta) {
@@ -1721,27 +1722,26 @@
             let val = parseInt(input.value) || 1;
             val = Math.max(1, Math.min(999, val + delta));
             input.value = val;
-            updateTotal();
+            updateTotalAM();
         }
 
-        function updateTotal() {
+        function updateTotalAM() {
             const input = document.getElementById('jumlahInput');
             let qty = parseInt(input.value) || 1;
             qty = Math.max(1, Math.min(999, qty));
             input.value = qty;
 
-            const total = qty * prices[selectedOption];
+            const total = qty * pricesAM[selectedOption];
             document.getElementById('totalPrice').textContent = `Total: Rp ${total.toLocaleString('id-ID')}`;
         }
 
         document.getElementById('hargaSatuan').textContent = 'Rp 5.000';
-        updateTotal();
+        updateTotalAM();
 
         // ==========================================
-        // SLIDE 4 - SEWA BOT
+        // SLIDE 4 - SEWA BOT (KHUSUS BOT)
         // ==========================================
         const BOT_PRICE = 15000;
-        let botQty = 1;
 
         function updateJumlahBot(delta) {
             const input = document.getElementById('jumlahInputBot');
@@ -1756,7 +1756,6 @@
             let qty = parseInt(input.value) || 1;
             qty = Math.max(1, Math.min(999, qty));
             input.value = qty;
-            botQty = qty;
 
             const total = qty * BOT_PRICE;
             document.getElementById('totalPriceBot').textContent = `Total: Rp ${total.toLocaleString('id-ID')}`;
@@ -1767,15 +1766,13 @@
         // ==========================================
         // PAYMENT MODAL
         // ==========================================
-        let isBotPayment = false;
-
-        function openPayment() {
-            isBotPayment = false;
+        function openPaymentAM() {
+            isBotPaymentMode = false;
             document.getElementById('paymentModal').classList.add('show');
         }
 
         function openPaymentBot() {
-            isBotPayment = true;
+            isBotPaymentMode = true;
             document.getElementById('paymentModal').classList.add('show');
         }
 
@@ -1807,7 +1804,7 @@
         function confirmWA() {
             let qty, price, total, productName, productDesc;
 
-            if (isBotPayment) {
+            if (isBotPaymentMode) {
                 qty = parseInt(document.getElementById('jumlahInputBot').value) || 1;
                 price = BOT_PRICE;
                 total = qty * price;
@@ -1815,10 +1812,10 @@
                 productDesc = 'Bot fast respon • All fitur lengkap • Work it laa';
             } else {
                 qty = parseInt(document.getElementById('jumlahInput').value) || 1;
-                price = prices[selectedOption];
+                price = pricesAM[selectedOption];
                 total = qty * price;
-                productName = names[selectedOption];
-                productDesc = descs[selectedOption];
+                productName = namesAM[selectedOption];
+                productDesc = descsAM[selectedOption];
             }
 
             const now = new Date();
@@ -1834,7 +1831,7 @@
                 `─────────────────%0A` +
                 `🛒 Produk: ${productName}%0A` +
                 `📝 Deskripsi: ${productDesc}%0A` +
-                `🔢 Jumlah: ${qty} ${isBotPayment ? 'bulan' : ''}%0A` +
+                `🔢 Jumlah: ${qty} ${isBotPaymentMode ? 'bulan' : ''}%0A` +
                 `💰 Total: Rp ${total.toLocaleString('id-ID')}%0A` +
                 `─────────────────%0A` +
                 `📅 Tanggal: ${dateStr}%0A` +
