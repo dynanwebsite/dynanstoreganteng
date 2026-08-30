@@ -302,7 +302,6 @@
             color: #94a3b8;
         }
 
-        /* ===== SLIDE WRAPPER - FULL LEBAR ===== */
         .slides-wrapper {
             max-width: 100%;
             width: 100%;
@@ -344,7 +343,6 @@
             background: transparent;
         }
 
-        /* ===== STATUS ONLINE ===== */
         .status-online {
             display: inline-flex;
             align-items: center;
@@ -397,7 +395,7 @@
             }
         }
 
-        /* ===== SLIDE 1 - HOME ===== */
+        /* ===== SLIDE 1 ===== */
         .store-header {
             display: flex;
             align-items: center;
@@ -592,7 +590,6 @@
             transform: scale(1.05);
         }
 
-        /* TOMBOL PRODUK KE SLIDE 2 */
         .btn-produk {
             background: #7c3aed;
             color: #fff;
@@ -701,7 +698,7 @@
             margin-top: 3px;
         }
 
-        /* ===== SLIDE 2 - KATALOG (2 TOMBOL BESAR) ===== */
+        /* ===== SLIDE 2 ===== */
         .slide2-header {
             display: flex;
             align-items: center;
@@ -809,7 +806,7 @@
             transform: translateX(4px);
         }
 
-        /* ===== SLIDE 3 - ALIGHT MOTION ===== */
+        /* ===== SLIDE 3 ===== */
         .alight-header {
             display: flex;
             align-items: center;
@@ -989,7 +986,7 @@
             transform: scale(1.02);
         }
 
-        /* ===== SLIDE 4 - SEWA BOT GRUP ===== */
+        /* ===== SLIDE 4 ===== */
         .bot-header {
             display: flex;
             align-items: center;
@@ -1172,14 +1169,26 @@
 
         .payment-option .qr-placeholder {
             margin-top: 10px;
-            padding: 20px;
-            background: #f1f5f9;
+            padding: 10px;
+            background: #fff;
             border-radius: 12px;
-            text-align: center;
-            font-size: 14px;
-            color: #64748b;
             border: 2px dashed #cbd5e1;
+            text-align: center;
             transition: background 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        .payment-option .qr-placeholder img {
+            width: 100%;
+            max-width: 250px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        .payment-option .qr-placeholder p {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 8px;
         }
 
         .payment-option .qr-placeholder a {
@@ -1190,6 +1199,45 @@
 
         .payment-option .qr-placeholder a:hover {
             text-decoration: underline;
+        }
+
+        /* Tombol Pilih Metode Pembayaran */
+        .btn-metode {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e9edf4;
+            border-radius: 16px;
+            background: #f8fafc;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+            font-size: 16px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-metode:hover {
+            border-color: #7c3aed;
+            background: #f3e8ff;
+        }
+
+        .btn-metode.selected {
+            border-color: #22c55e;
+            background: #dcfce7;
+        }
+
+        .btn-metode .icon-dana {
+            color: #22c55e;
+            font-size: 20px;
+        }
+
+        .btn-metode .icon-qris {
+            color: #7c3aed;
+            font-size: 20px;
         }
 
         .btn-wa {
@@ -1213,6 +1261,12 @@
         .btn-wa:hover {
             background: #128C7E;
             transform: scale(1.02);
+        }
+
+        .btn-wa:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .btn-wa i {
@@ -1292,6 +1346,26 @@
             transform: scale(1.1);
             background: #5b21b6;
         }
+
+        /* Info metode terpilih */
+        .metode-terpilih {
+            text-align: center;
+            padding: 8px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .metode-terpilih.dana {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .metode-terpilih.qris {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
     </style>
 </head>
 <body>
@@ -1305,28 +1379,40 @@
     <div class="payment-modal" id="paymentModal">
         <div class="modal-content">
             <button class="close-btn" onclick="closePayment()">&times;</button>
-            <h3><i class="fas fa-credit-card" style="color:#7c3aed;"></i> Pilih Pembayaran</h3>
+            <h3><i class="fas fa-credit-card" style="color:#7c3aed;"></i> Pilih Metode Pembayaran</h3>
 
-            <div class="payment-option">
-                <div class="pay-title"><i class="fas fa-wallet" style="color:#22c55e;"></i> DANA</div>
-                <div class="pay-detail">
-                    <strong>082381531460</strong> - a.n Rasmi Tambunan
-                </div>
-                <button class="copy-btn" onclick="copyText('082381531460')">
-                    <i class="fas fa-copy"></i> Salin Nomor
-                </button>
-            </div>
+            <p style="text-align:center;font-size:14px;color:#64748b;margin-bottom:16px;">
+                Pilih metode pembayaran lalu konfirmasi ke WhatsApp
+            </p>
 
-            <div class="payment-option">
-                <div class="pay-title"><i class="fas fa-qrcode" style="color:#7c3aed;"></i> QRIS</div>
-                <div class="pay-detail">Scan QRIS di bawah ini:</div>
+            <!-- Pilihan DANA -->
+            <button class="btn-metode" id="btnDana" onclick="pilihMetode('dana')">
+                <span class="icon-dana"><i class="fas fa-wallet"></i></span>
+                DANA - 082381531460
+            </button>
+
+            <!-- Pilihan QRIS -->
+            <button class="btn-metode" id="btnQris" onclick="pilihMetode('qris')">
+                <span class="icon-qris"><i class="fas fa-qrcode"></i></span>
+                QRIS (Scan di bawah)
+            </button>
+
+            <!-- Tampilkan detail metode terpilih -->
+            <div id="detailMetode"></div>
+
+            <!-- QRIS Image (hidden dulu) -->
+            <div id="qrisImage" style="display:none;margin-top:12px;">
                 <div class="qr-placeholder">
-                    <i class="fas fa-qrcode" style="font-size:48px;color:#7c3aed;display:block;margin-bottom:8px;"></i>
-                    <p style="font-size:13px;color:#94a3b8;">Link QRIS: <a href="#" id="qrisLink" target="_blank">[Ganti link QRIS di sini]</a></p>
+                    <img src="https://i.ibb.co.com/8L2B5p0p/qr-ID1025435087404-31-08-26-1788124804-1788124804995.jpg" 
+                         alt="QRIS Dynan Store" />
+                    <p>
+                        <a href="https://ibb.co.com/Ndp3jPsP" target="_blank">Lihat QRIS full</a>
+                    </p>
                 </div>
             </div>
 
-            <button class="btn-wa" onclick="confirmWA()">
+            <!-- Tombol Konfirmasi WhatsApp -->
+            <button class="btn-wa" id="btnWa" disabled onclick="confirmWA()">
                 <i class="fab fa-whatsapp"></i> Konfirmasi Via WhatsApp
             </button>
 
@@ -1388,7 +1474,6 @@
                     </div>
                 </div>
 
-                <!-- TOMBOL PRODUK KE SLIDE 2 -->
                 <button class="btn-produk" onclick="goToSlide(1)">
                     <i class="fas fa-boxes"></i> Produk
                 </button>
@@ -1425,7 +1510,7 @@
             </div>
 
             <!-- ============================ -->
-            <!-- SLIDE 2 - KATALOG (2 TOMBOL BESAR) -->
+            <!-- SLIDE 2 - KATALOG -->
             <!-- ============================ -->
             <div class="slide" id="slide2">
 
@@ -1442,7 +1527,6 @@
                 </div>
 
                 <div class="katalog-grid">
-                    <!-- Tombol Alight Motion ke Slide 3 -->
                     <button class="btn-katalog" onclick="goToSlide(2)">
                         <span class="kat-icon">🎬</span>
                         <div class="kat-info">
@@ -1453,7 +1537,6 @@
                         <span class="kat-arrow"><i class="fas fa-chevron-right"></i></span>
                     </button>
 
-                    <!-- Tombol Sewa Bot Grup ke Slide 4 -->
                     <button class="btn-katalog" onclick="goToSlide(3)">
                         <span class="kat-icon">🤖</span>
                         <div class="kat-info">
@@ -1478,7 +1561,7 @@
             </div>
 
             <!-- ============================ -->
-            <!-- SLIDE 3 - ALIGHT MOTION (2 PILIHAN) -->
+            <!-- SLIDE 3 - ALIGHT MOTION -->
             <!-- ============================ -->
             <div class="slide" id="slide3">
 
@@ -1489,7 +1572,6 @@
                     </button>
                 </div>
 
-                <!-- PILIHAN 1 -->
                 <div class="product-option active" id="option1" onclick="selectOption(1)">
                     <div class="option-header">
                         <span class="option-name">🎬 Alight Motion Prem 1 Tahun</span>
@@ -1498,7 +1580,6 @@
                     <div class="option-desc">Prem 1 Tahun • Unlock All Fitur</div>
                 </div>
 
-                <!-- PILIHAN 2 -->
                 <div class="product-option" id="option2" onclick="selectOption(2)">
                     <div class="option-header">
                         <span class="option-name">🔄 Reseller Alight Motion Prem</span>
@@ -1544,7 +1625,7 @@
             </div>
 
             <!-- ============================ -->
-            <!-- SLIDE 4 - SEWA BOT GRUP (LANGSUNG) -->
+            <!-- SLIDE 4 - SEWA BOT GRUP -->
             <!-- ============================ -->
             <div class="slide" id="slide4">
 
@@ -1654,7 +1735,6 @@
             const minutes = now.getMinutes().toString().padStart(2, '0');
             document.getElementById('ulasanWaktu').textContent = `${hours}:${minutes} - ${dateStr}`;
 
-            // Produk hari ini (berganti tiap hari)
             const products = [
                 { icon: '🎬', name: 'Alight Motion Prem 1 Tahun', desc: 'Prem 1 Tahun • Unlock All Fitur',
                 price: 'Rp 5.000' },
@@ -1690,6 +1770,7 @@
         };
 
         let isBotPaymentMode = false;
+        let metodePembayaran = '';
 
         function selectOption(opt) {
             selectedOption = opt;
@@ -1751,21 +1832,64 @@
         // ==========================================
         function openPaymentAM() {
             isBotPaymentMode = false;
+            metodePembayaran = '';
+            resetMetode();
             document.getElementById('paymentModal').classList.add('show');
         }
 
         function openPaymentBot() {
             isBotPaymentMode = true;
+            metodePembayaran = '';
+            resetMetode();
             document.getElementById('paymentModal').classList.add('show');
         }
 
         function closePayment() {
             document.getElementById('paymentModal').classList.remove('show');
+            resetMetode();
         }
 
         document.getElementById('paymentModal').addEventListener('click', function(e) {
             if (e.target === this) closePayment();
         });
+
+        function resetMetode() {
+            document.getElementById('btnDana').classList.remove('selected');
+            document.getElementById('btnQris').classList.remove('selected');
+            document.getElementById('detailMetode').innerHTML = '';
+            document.getElementById('qrisImage').style.display = 'none';
+            document.getElementById('btnWa').disabled = true;
+            metodePembayaran = '';
+        }
+
+        function pilihMetode(metode) {
+            metodePembayaran = metode;
+
+            // Reset semua
+            document.getElementById('btnDana').classList.remove('selected');
+            document.getElementById('btnQris').classList.remove('selected');
+            document.getElementById('detailMetode').innerHTML = '';
+            document.getElementById('qrisImage').style.display = 'none';
+
+            if (metode === 'dana') {
+                document.getElementById('btnDana').classList.add('selected');
+                document.getElementById('detailMetode').innerHTML = `
+                    <div class="metode-terpilih dana">
+                        <i class="fas fa-wallet"></i> DANA - 082381531460 (Rasmi Tambunan)
+                    </div>
+                `;
+            } else if (metode === 'qris') {
+                document.getElementById('btnQris').classList.add('selected');
+                document.getElementById('detailMetode').innerHTML = `
+                    <div class="metode-terpilih qris">
+                        <i class="fas fa-qrcode"></i> QRIS - Scan kode di bawah
+                    </div>
+                `;
+                document.getElementById('qrisImage').style.display = 'block';
+            }
+
+            document.getElementById('btnWa').disabled = false;
+        }
 
         function copyText(text) {
             navigator.clipboard.writeText(text).then(() => {
@@ -1785,6 +1909,11 @@
         // KONFIRMASI WHATSAPP
         // ==========================================
         function confirmWA() {
+            if (!metodePembayaran) {
+                alert('Silakan pilih metode pembayaran terlebih dahulu!');
+                return;
+            }
+
             let qty, price, total, productName, productDesc;
 
             if (isBotPaymentMode) {
@@ -1808,6 +1937,8 @@
                 `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
             const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
 
+            const metodeText = metodePembayaran === 'dana' ? 'DANA (082381531460)' : 'QRIS';
+
             const message =
                 `Halo Admin Dynan Store! Saya ingin konfirmasi pembayaran.%0A%0A` +
                 `📦 *Detail Pesanan*%0A` +
@@ -1816,6 +1947,8 @@
                 `📝 Deskripsi: ${productDesc}%0A` +
                 `🔢 Jumlah: ${qty} ${isBotPaymentMode ? 'bulan' : ''}%0A` +
                 `💰 Total: Rp ${total.toLocaleString('id-ID')}%0A` +
+                `─────────────────%0A` +
+                `💳 Metode Pembayaran: ${metodeText}%0A` +
                 `─────────────────%0A` +
                 `📅 Tanggal: ${dateStr}%0A` +
                 `⏰ Jam: ${timeStr}%0A` +
@@ -1828,12 +1961,6 @@
 
             closePayment();
         }
-
-        // ==========================================
-        // QRIS LINK
-        // ==========================================
-        document.getElementById('qrisLink').href = 'https://example.com/qris-link-anda';
-        document.getElementById('qrisLink').textContent = '[Ganti link QRIS di sini]';
 
         console.log('✅ Dynan Store siap!');
         console.log('📝 Admin WA: 082381531460');
