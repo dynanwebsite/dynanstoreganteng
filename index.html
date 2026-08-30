@@ -62,14 +62,30 @@
             border-bottom-color: #2d3748;
         }
 
-        body.dark-mode .grid-item {
+        body.dark-mode .btn-katalog {
             background: #16213e;
             border-color: #2d3748;
+        }
+
+        body.dark-mode .btn-katalog:hover {
+            background: #1e1e3f;
+            border-color: #4c1d95;
+        }
+
+        body.dark-mode .btn-katalog .kat-icon {
             color: #e2e8f0;
         }
 
-        body.dark-mode .grid-item .g-name {
+        body.dark-mode .btn-katalog .kat-name {
             color: #e2e8f0;
+        }
+
+        body.dark-mode .btn-katalog .kat-desc {
+            color: #94a3b8;
+        }
+
+        body.dark-mode .btn-katalog .kat-price {
+            color: #f59e0b;
         }
 
         body.dark-mode .btn-produk {
@@ -232,14 +248,6 @@
 
         body.dark-mode .slide::-webkit-scrollbar-thumb {
             background: #4a5568;
-        }
-
-        body.dark-mode .product-grid::-webkit-scrollbar-thumb {
-            background: #4a5568;
-        }
-
-        body.dark-mode .grid-item .g-desc {
-            color: #94a3b8;
         }
 
         body.dark-mode .status-online {
@@ -584,6 +592,7 @@
             transform: scale(1.05);
         }
 
+        /* TOMBOL PRODUK KE SLIDE 2 */
         .btn-produk {
             background: #7c3aed;
             color: #fff;
@@ -692,7 +701,7 @@
             margin-top: 3px;
         }
 
-        /* ===== SLIDE 2 - KATALOG ===== */
+        /* ===== SLIDE 2 - KATALOG (2 TOMBOL BESAR) ===== */
         .slide2-header {
             display: flex;
             align-items: center;
@@ -730,87 +739,77 @@
             background: #e2e8f0;
         }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            max-height: 70vh;
-            overflow-y: auto;
-            padding-right: 6px;
-        }
-
-        .product-grid::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .product-grid::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
-        }
-
-        .grid-item {
-            background: #f8fafc;
-            border-radius: 18px;
-            padding: 24px 14px;
-            text-align: center;
-            border: 2px solid #e9edf4;
-            transition: 0.2s, background 0.3s, border-color 0.3s;
-            cursor: pointer;
-            min-height: 150px;
+        .katalog-grid {
             display: flex;
             flex-direction: column;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .btn-katalog {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 28px 24px;
+            border: 2px solid #e9edf4;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
+            gap: 20px;
+            width: 100%;
+            text-align: left;
         }
 
-        .grid-item:hover {
-            border-color: #a78bfa;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.15);
+        .btn-katalog:hover {
+            border-color: #7c3aed;
+            transform: scale(1.01);
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
         }
 
-        .grid-item .g-icon {
-            font-size: 40px;
+        .btn-katalog .kat-icon {
+            font-size: 48px;
+            flex-shrink: 0;
         }
 
-        .grid-item .g-name {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1e293b;
+        .btn-katalog .kat-info {
+            flex: 1;
+        }
+
+        .btn-katalog .kat-name {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1a1a2e;
             transition: color 0.3s;
         }
 
-        .grid-item .g-desc {
-            font-size: 12px;
+        .btn-katalog .kat-desc {
+            font-size: 15px;
             color: #64748b;
+            margin-top: 4px;
             transition: color 0.3s;
         }
 
-        .grid-item .g-price {
-            font-size: 15px;
+        .btn-katalog .kat-price {
+            font-size: 20px;
             font-weight: 800;
             color: #7c3aed;
+            margin-top: 6px;
+            transition: color 0.3s;
         }
 
-        .grid-item .g-btn {
-            margin-top: 6px;
-            background: #7c3aed;
-            color: #fff;
-            border: none;
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
+        .btn-katalog .kat-arrow {
+            font-size: 28px;
+            color: #94a3b8;
+            flex-shrink: 0;
             transition: 0.2s;
         }
 
-        .grid-item .g-btn:hover {
-            background: #5b21b6;
+        .btn-katalog:hover .kat-arrow {
+            color: #7c3aed;
+            transform: translateX(4px);
         }
 
-        /* ===== SLIDE 3 - ALIGHT MOTION (KHUSUS AM) ===== */
+        /* ===== SLIDE 3 - ALIGHT MOTION ===== */
         .alight-header {
             display: flex;
             align-items: center;
@@ -848,7 +847,6 @@
             background: #e2e8f0;
         }
 
-        /* Pilihan produk AM (hanya 2) */
         .product-option {
             background: #f8fafc;
             border-radius: 18px;
@@ -991,7 +989,7 @@
             transform: scale(1.02);
         }
 
-        /* ===== SLIDE 4 - SEWA BOT GRUP (KHUSUS BOT) ===== */
+        /* ===== SLIDE 4 - SEWA BOT GRUP ===== */
         .bot-header {
             display: flex;
             align-items: center;
@@ -1390,6 +1388,7 @@
                     </div>
                 </div>
 
+                <!-- TOMBOL PRODUK KE SLIDE 2 -->
                 <button class="btn-produk" onclick="goToSlide(1)">
                     <i class="fas fa-boxes"></i> Produk
                 </button>
@@ -1426,7 +1425,7 @@
             </div>
 
             <!-- ============================ -->
-            <!-- SLIDE 2 - KATALOG -->
+            <!-- SLIDE 2 - KATALOG (2 TOMBOL BESAR) -->
             <!-- ============================ -->
             <div class="slide" id="slide2">
 
@@ -1442,8 +1441,28 @@
                     Online
                 </div>
 
-                <div class="product-grid" id="productGrid">
-                    <!-- Isi dari JavaScript -->
+                <div class="katalog-grid">
+                    <!-- Tombol Alight Motion ke Slide 3 -->
+                    <button class="btn-katalog" onclick="goToSlide(2)">
+                        <span class="kat-icon">🎬</span>
+                        <div class="kat-info">
+                            <div class="kat-name">Alight Motion</div>
+                            <div class="kat-desc">Prem 1 Tahun &amp; Reseller</div>
+                            <div class="kat-price">Mulai Rp 5.000</div>
+                        </div>
+                        <span class="kat-arrow"><i class="fas fa-chevron-right"></i></span>
+                    </button>
+
+                    <!-- Tombol Sewa Bot Grup ke Slide 4 -->
+                    <button class="btn-katalog" onclick="goToSlide(3)">
+                        <span class="kat-icon">🤖</span>
+                        <div class="kat-info">
+                            <div class="kat-name">Sewa Bot Grup</div>
+                            <div class="kat-desc">Bot fast respon • All fitur lengkap</div>
+                            <div class="kat-price">Rp 15.000 / bulan</div>
+                        </div>
+                        <span class="kat-arrow"><i class="fas fa-chevron-right"></i></span>
+                    </button>
                 </div>
 
                 <div class="slide-nav" style="margin-top:18px;">
@@ -1454,23 +1473,23 @@
                 </div>
 
                 <div class="footer-info">
-                    <i class="fas fa-store"></i> Total produk: <span id="totalProduk">0</span>
+                    <i class="fas fa-store"></i> Total produk: 2 Kategori
                 </div>
             </div>
 
             <!-- ============================ -->
-            <!-- SLIDE 3 - ALIGHT MOTION (KHUSUS AM) -->
+            <!-- SLIDE 3 - ALIGHT MOTION (2 PILIHAN) -->
             <!-- ============================ -->
             <div class="slide" id="slide3">
 
                 <div class="alight-header">
                     <h2><i class="fas fa-video" style="color:#7c3aed;"></i> Alight Motion</h2>
-                    <button class="back-btn" onclick="goToSlide(0)">
+                    <button class="back-btn" onclick="goToSlide(1)">
                         <i class="fas fa-arrow-left"></i> Kembali
                     </button>
                 </div>
 
-                <!-- HANYA 2 PILIHAN AM -->
+                <!-- PILIHAN 1 -->
                 <div class="product-option active" id="option1" onclick="selectOption(1)">
                     <div class="option-header">
                         <span class="option-name">🎬 Alight Motion Prem 1 Tahun</span>
@@ -1479,9 +1498,10 @@
                     <div class="option-desc">Prem 1 Tahun • Unlock All Fitur</div>
                 </div>
 
+                <!-- PILIHAN 2 -->
                 <div class="product-option" id="option2" onclick="selectOption(2)">
                     <div class="option-header">
-                        <span class="option-name">🔄 Reseller Alight Motion</span>
+                        <span class="option-name">🔄 Reseller Alight Motion Prem</span>
                         <span class="option-price">Rp 15.000</span>
                     </div>
                     <div class="option-desc">Hak jual kembali (reseller)</div>
@@ -1524,13 +1544,13 @@
             </div>
 
             <!-- ============================ -->
-            <!-- SLIDE 4 - SEWA BOT GRUP (KHUSUS BOT) -->
+            <!-- SLIDE 4 - SEWA BOT GRUP (LANGSUNG) -->
             <!-- ============================ -->
             <div class="slide" id="slide4">
 
                 <div class="bot-header">
                     <h2><i class="fas fa-robot" style="color:#f59e0b;"></i> Sewa Bot Grup</h2>
-                    <button class="back-btn" onclick="goToSlide(0)">
+                    <button class="back-btn" onclick="goToSlide(1)">
                         <i class="fas fa-arrow-left"></i> Kembali
                     </button>
                 </div>
@@ -1585,18 +1605,6 @@
     <!-- ========================================== -->
     <script>
         // ==========================================
-        // DATA PRODUK
-        // ==========================================
-        const products = [
-            { icon: '🎬', name: 'Alight Motion Prem 1 Tahun', desc: 'Prem 1 Tahun • Unlock All Fitur', price: 'Rp 5.000',
-                slide: 2 },
-            { icon: '🔄', name: 'Reseller Alight Motion', desc: 'Hak jual kembali (reseller)', price: 'Rp 15.000',
-                slide: 2 },
-            { icon: '🤖', name: 'Sewa Bot Grup', desc: 'Bot fast respon • All fitur lengkap', price: 'Rp 15.000/bulan',
-                slide: 3 },
-        ];
-
-        // ==========================================
         // NAVIGASI SLIDE
         // ==========================================
         let currentSlide = 0;
@@ -1646,6 +1654,12 @@
             const minutes = now.getMinutes().toString().padStart(2, '0');
             document.getElementById('ulasanWaktu').textContent = `${hours}:${minutes} - ${dateStr}`;
 
+            // Produk hari ini (berganti tiap hari)
+            const products = [
+                { icon: '🎬', name: 'Alight Motion Prem 1 Tahun', desc: 'Prem 1 Tahun • Unlock All Fitur',
+                price: 'Rp 5.000' },
+                { icon: '🤖', name: 'Sewa Bot Grup', desc: 'Bot fast respon • All fitur lengkap', price: 'Rp 15.000/bulan' },
+            ];
             const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
             const productIndex = dayOfYear % products.length;
             const product = products[productIndex];
@@ -1659,38 +1673,7 @@
         updateSlide1();
 
         // ==========================================
-        // SLIDE 2 - GRID PRODUK
-        // ==========================================
-        function renderProductGrid() {
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = '';
-
-            const slideTargets = [2, 2, 3]; // index 0->slide3(AM), 1->slide3(AM), 2->slide4(Bot)
-
-            products.forEach((p, index) => {
-                const div = document.createElement('div');
-                div.className = 'grid-item';
-                const targetSlide = slideTargets[index];
-                div.innerHTML = `
-                    <div class="g-icon">${p.icon}</div>
-                    <div class="g-name">${p.name}</div>
-                    <div class="g-desc">${p.desc}</div>
-                    <div class="g-price">${p.price}</div>
-                    <button class="g-btn" onclick="goToSlide(${targetSlide}); 
-                        ${index < 2 ? `selectOption(${index + 1})` : ''}">
-                        <i class="fas fa-cart-plus"></i> Beli
-                    </button>
-                `;
-                grid.appendChild(div);
-            });
-
-            document.getElementById('totalProduk').textContent = products.length;
-        }
-
-        renderProductGrid();
-
-        // ==========================================
-        // SLIDE 3 - ALIGHT MOTION (KHUSUS AM)
+        // SLIDE 3 - ALIGHT MOTION
         // ==========================================
         let selectedOption = 1;
         const pricesAM = {
@@ -1699,7 +1682,7 @@
         };
         const namesAM = {
             1: 'Alight Motion Prem 1 Tahun',
-            2: 'Reseller Alight Motion'
+            2: 'Reseller Alight Motion Prem'
         };
         const descsAM = {
             1: 'Prem 1 Tahun • Unlock All Fitur',
@@ -1739,7 +1722,7 @@
         updateTotalAM();
 
         // ==========================================
-        // SLIDE 4 - SEWA BOT (KHUSUS BOT)
+        // SLIDE 4 - SEWA BOT
         // ==========================================
         const BOT_PRICE = 15000;
 
