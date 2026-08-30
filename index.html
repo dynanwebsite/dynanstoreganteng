@@ -302,6 +302,36 @@
             color: #94a3b8;
         }
 
+        body.dark-mode .ulasan-form {
+            background: #16213e;
+            border-color: #2d3748;
+        }
+
+        body.dark-mode .ulasan-form input,
+        body.dark-mode .ulasan-form textarea {
+            background: #0f172a;
+            color: #e2e8f0;
+            border-color: #2d3748;
+        }
+
+        body.dark-mode .ulasan-form input:focus,
+        body.dark-mode .ulasan-form textarea:focus {
+            border-color: #7c3aed;
+        }
+
+        body.dark-mode .ulasan-form .star-btn {
+            color: #64748b;
+        }
+
+        body.dark-mode .ulasan-form .star-btn.active {
+            color: #fbbf24;
+        }
+
+        body.dark-mode .ulasan-form .star-btn:hover {
+            color: #fbbf24;
+        }
+
+        /* ===== SLIDE WRAPPER ===== */
         .slides-wrapper {
             max-width: 100%;
             width: 100%;
@@ -325,13 +355,13 @@
             background: #ffffff;
             width: 25%;
             height: 100vh;
-            padding: 50px 40px 40px;
+            padding: 40px 32px 32px;
             overflow-y: auto;
             transition: background 0.3s, color 0.3s;
         }
 
         .slide::-webkit-scrollbar {
-            width: 5px;
+            width: 4px;
         }
 
         .slide::-webkit-scrollbar-thumb {
@@ -349,16 +379,16 @@
             gap: 6px;
             background: #dcfce7;
             color: #16a34a;
-            padding: 4px 14px;
+            padding: 3px 12px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .status-online .dot {
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             background: #22c55e;
             animation: blink 1.5s infinite;
@@ -370,16 +400,16 @@
             gap: 6px;
             background: #dcfce7;
             color: #16a34a;
-            padding: 4px 14px;
+            padding: 3px 12px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .status-online-slide2 .dot {
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             background: #22c55e;
             animation: blink 1.5s infinite;
@@ -399,69 +429,69 @@
         .store-header {
             display: flex;
             align-items: center;
-            gap: 18px;
-            margin-bottom: 16px;
+            gap: 14px;
+            margin-bottom: 12px;
         }
 
         .store-logo {
-            width: 68px;
-            height: 68px;
+            width: 56px;
+            height: 56px;
             background: linear-gradient(135deg, #f093fb, #f5576c);
-            border-radius: 20px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 26px;
             font-weight: 800;
             color: #fff;
         }
 
         .store-name h1 {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
             color: #1a1a2e;
             transition: color 0.3s;
         }
 
         .store-name .badge {
-            font-size: 14px;
+            font-size: 12px;
             background: #eef2ff;
             color: #4f46e5;
-            padding: 3px 16px;
+            padding: 2px 12px;
             border-radius: 20px;
             font-weight: 600;
             display: inline-block;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
         .rating-section {
             background: #f8fafc;
-            border-radius: 20px;
-            padding: 20px 24px;
+            border-radius: 16px;
+            padding: 14px 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin: 16px 0 20px;
+            margin: 12px 0 16px;
             border: 1px solid #e9edf4;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             transition: background 0.3s, border-color 0.3s;
         }
 
         .rating-left {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 10px;
         }
 
         .rating-stars {
             color: #fbbf24;
-            font-size: 24px;
-            letter-spacing: 2px;
+            font-size: 20px;
+            letter-spacing: 1px;
         }
 
         .rating-number {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 800;
             color: #0f172a;
             transition: color 0.3s;
@@ -469,7 +499,7 @@
 
         .rating-number small {
             font-weight: 400;
-            font-size: 16px;
+            font-size: 14px;
             color: #64748b;
         }
 
@@ -478,40 +508,40 @@
         }
 
         .rating-right .ulasan-count {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: #0f172a;
             transition: color 0.3s;
         }
 
         .rating-right .label-ulasan {
-            font-size: 15px;
+            font-size: 13px;
             color: #64748b;
             font-weight: 500;
         }
 
         .product-section {
-            margin: 20px 0 14px;
+            margin: 16px 0 10px;
         }
 
         .product-label {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .product-label h3 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: #1e293b;
         }
 
         .product-label .date-badge {
-            font-size: 15px;
+            font-size: 13px;
             color: #4f46e5;
             background: #eef2ff;
-            padding: 5px 16px;
+            padding: 4px 12px;
             border-radius: 20px;
             font-weight: 600;
             transition: background 0.3s, color 0.3s;
@@ -519,11 +549,11 @@
 
         .product-card {
             background: linear-gradient(135deg, #faf5ff, #f3e8ff);
-            border-radius: 24px;
-            padding: 22px 24px;
+            border-radius: 20px;
+            padding: 16px 18px;
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 14px;
             border: 2px solid #ede9fe;
             transition: 0.2s, background 0.3s, border-color 0.3s;
             cursor: pointer;
@@ -535,14 +565,14 @@
         }
 
         .product-icon {
-            width: 72px;
-            height: 72px;
+            width: 56px;
+            height: 56px;
             background: linear-gradient(135deg, #a78bfa, #7c3aed);
-            border-radius: 18px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 34px;
+            font-size: 28px;
             color: #fff;
             flex-shrink: 0;
         }
@@ -552,34 +582,34 @@
         }
 
         .product-info h4 {
-            font-size: 20px;
+            font-size: 17px;
             font-weight: 700;
             color: #1e293b;
             transition: color 0.3s;
         }
 
         .product-info p {
-            font-size: 16px;
+            font-size: 14px;
             color: #64748b;
-            margin-top: 3px;
+            margin-top: 2px;
             transition: color 0.3s;
         }
 
         .product-info .price {
-            font-size: 20px;
+            font-size: 17px;
             font-weight: 800;
             color: #7c3aed;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
         .btn-beli {
             background: #7c3aed;
             color: #fff;
             border: none;
-            padding: 12px 24px;
+            padding: 8px 18px;
             border-radius: 40px;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 13px;
             cursor: pointer;
             transition: 0.2s;
             white-space: nowrap;
@@ -594,18 +624,18 @@
             background: #7c3aed;
             color: #fff;
             border: none;
-            padding: 14px 32px;
+            padding: 12px 24px;
             border-radius: 40px;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             transition: 0.3s;
             width: 100%;
-            margin-top: 8px;
+            margin-top: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .btn-produk:hover {
@@ -614,12 +644,12 @@
         }
 
         .btn-produk i {
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .ulasan-section {
-            margin-top: 20px;
-            padding-top: 18px;
+            margin-top: 16px;
+            padding-top: 14px;
             border-top: 1px solid #e9edf4;
             transition: border-color 0.3s;
         }
@@ -628,34 +658,34 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .ulasan-header h4 {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
             color: #1e293b;
         }
 
         .ulasan-header span {
-            font-size: 14px;
+            font-size: 12px;
             color: #94a3b8;
         }
 
         .ulasan-item {
             display: flex;
             align-items: flex-start;
-            gap: 14px;
+            gap: 12px;
             background: #f8fafc;
-            padding: 14px 18px;
-            border-radius: 16px;
-            margin-bottom: 10px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            margin-bottom: 8px;
             transition: background 0.3s;
         }
 
         .ulasan-avatar {
-            width: 44px;
-            height: 44px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: linear-gradient(135deg, #f093fb, #f5576c);
             display: flex;
@@ -663,7 +693,7 @@
             justify-content: center;
             color: #fff;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 15px;
             flex-shrink: 0;
         }
 
@@ -673,29 +703,110 @@
 
         .ulasan-body .nama {
             font-weight: 700;
-            font-size: 16px;
+            font-size: 14px;
             color: #0f172a;
             transition: color 0.3s;
         }
 
         .ulasan-body .bintang {
             color: #fbbf24;
-            font-size: 14px;
+            font-size: 12px;
             letter-spacing: 1px;
         }
 
         .ulasan-body .teks {
-            font-size: 15px;
+            font-size: 13px;
             color: #475569;
-            margin-top: 3px;
-            line-height: 1.5;
+            margin-top: 2px;
+            line-height: 1.4;
             transition: color 0.3s;
         }
 
         .ulasan-body .waktu {
-            font-size: 13px;
+            font-size: 11px;
             color: #94a3b8;
-            margin-top: 3px;
+            margin-top: 2px;
+        }
+
+        /* ===== FORM ULASAN ===== */
+        .ulasan-form {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 12px;
+            border: 1px solid #e9edf4;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .ulasan-form h5 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .ulasan-form .star-rating {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .ulasan-form .star-btn {
+            font-size: 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #cbd5e1;
+            transition: 0.2s;
+        }
+
+        .ulasan-form .star-btn.active {
+            color: #fbbf24;
+        }
+
+        .ulasan-form .star-btn:hover {
+            color: #fbbf24;
+        }
+
+        .ulasan-form input,
+        .ulasan-form textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #e9edf4;
+            border-radius: 12px;
+            font-size: 14px;
+            transition: border-color 0.3s, background 0.3s, color 0.3s;
+            background: #fff;
+            margin-bottom: 10px;
+        }
+
+        .ulasan-form input:focus,
+        .ulasan-form textarea:focus {
+            outline: none;
+            border-color: #7c3aed;
+        }
+
+        .ulasan-form textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .ulasan-form .btn-kirim-ulasan {
+            background: #7c3aed;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .ulasan-form .btn-kirim-ulasan:hover {
+            background: #5b21b6;
+            transform: scale(1.02);
         }
 
         /* ===== SLIDE 2 ===== */
@@ -703,14 +814,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 16px;
-            padding-bottom: 16px;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
             border-bottom: 2px solid #e9edf4;
             transition: border-color 0.3s;
         }
 
         .slide2-header h2 {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 800;
             color: #1a1a2e;
             transition: color 0.3s;
@@ -723,13 +834,13 @@
         .slide2-header .back-btn {
             background: #f1f5f9;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 30px;
             font-weight: 600;
             color: #475569;
             cursor: pointer;
             transition: 0.2s;
-            font-size: 15px;
+            font-size: 13px;
         }
 
         .slide2-header .back-btn:hover {
@@ -739,20 +850,20 @@
         .katalog-grid {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-top: 8px;
+            gap: 14px;
+            margin-top: 6px;
         }
 
         .btn-katalog {
             background: #f8fafc;
-            border-radius: 24px;
-            padding: 28px 24px;
+            border-radius: 20px;
+            padding: 22px 20px;
             border: 2px solid #e9edf4;
             cursor: pointer;
             transition: 0.2s;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 16px;
             width: 100%;
             text-align: left;
         }
@@ -760,11 +871,11 @@
         .btn-katalog:hover {
             border-color: #7c3aed;
             transform: scale(1.01);
-            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+            box-shadow: 0 4px 16px rgba(124, 58, 237, 0.12);
         }
 
         .btn-katalog .kat-icon {
-            font-size: 48px;
+            font-size: 38px;
             flex-shrink: 0;
         }
 
@@ -773,29 +884,29 @@
         }
 
         .btn-katalog .kat-name {
-            font-size: 22px;
+            font-size: 19px;
             font-weight: 800;
             color: #1a1a2e;
             transition: color 0.3s;
         }
 
         .btn-katalog .kat-desc {
-            font-size: 15px;
+            font-size: 13px;
             color: #64748b;
-            margin-top: 4px;
+            margin-top: 2px;
             transition: color 0.3s;
         }
 
         .btn-katalog .kat-price {
-            font-size: 20px;
+            font-size: 17px;
             font-weight: 800;
             color: #7c3aed;
-            margin-top: 6px;
+            margin-top: 4px;
             transition: color 0.3s;
         }
 
         .btn-katalog .kat-arrow {
-            font-size: 28px;
+            font-size: 22px;
             color: #94a3b8;
             flex-shrink: 0;
             transition: 0.2s;
@@ -811,14 +922,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
             border-bottom: 2px solid #e9edf4;
             transition: border-color 0.3s;
         }
 
         .alight-header h2 {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 800;
             color: #1a1a2e;
             transition: color 0.3s;
@@ -831,13 +942,13 @@
         .alight-header .back-btn {
             background: #f1f5f9;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 30px;
             font-weight: 600;
             color: #475569;
             cursor: pointer;
             transition: 0.2s;
-            font-size: 15px;
+            font-size: 13px;
         }
 
         .alight-header .back-btn:hover {
@@ -846,9 +957,9 @@
 
         .product-option {
             background: #f8fafc;
-            border-radius: 18px;
-            padding: 18px 20px;
-            margin-bottom: 14px;
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
             border: 2px solid #e9edf4;
             cursor: pointer;
             transition: 0.2s;
@@ -872,29 +983,29 @@
 
         .product-option .option-name {
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             color: #1a1a2e;
             transition: color 0.3s;
         }
 
         .product-option .option-price {
             font-weight: 800;
-            font-size: 20px;
+            font-size: 17px;
             color: #f59e0b;
         }
 
         .product-option .option-desc {
-            font-size: 14px;
+            font-size: 13px;
             color: #64748b;
-            margin-top: 4px;
+            margin-top: 3px;
             transition: color 0.3s;
         }
 
         .order-section {
             background: #f8fafc;
-            border-radius: 18px;
-            padding: 20px;
-            margin-top: 18px;
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 14px;
             border: 1px solid #e9edf4;
             transition: background 0.3s, border-color 0.3s;
         }
@@ -903,12 +1014,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .order-row label {
             font-weight: 600;
-            font-size: 16px;
+            font-size: 14px;
             color: #1e293b;
             transition: color 0.3s;
         }
@@ -916,17 +1027,17 @@
         .jumlah-control {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .jumlah-control button {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             border: 2px solid #f59e0b;
             background: transparent;
             color: #f59e0b;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             cursor: pointer;
             transition: 0.2s;
@@ -941,12 +1052,12 @@
         }
 
         .jumlah-control input {
-            width: 70px;
-            height: 40px;
+            width: 60px;
+            height: 36px;
             text-align: center;
             border: 2px solid #e9edf4;
-            border-radius: 10px;
-            font-size: 18px;
+            border-radius: 8px;
+            font-size: 16px;
             font-weight: 700;
             background: #fff;
             transition: border-color 0.3s, background 0.3s, color 0.3s;
@@ -958,27 +1069,27 @@
         }
 
         .total-price {
-            font-size: 22px;
+            font-size: 19px;
             font-weight: 800;
             color: #f59e0b;
             text-align: right;
-            padding-top: 12px;
+            padding-top: 10px;
             border-top: 1px solid #e9edf4;
             transition: border-color 0.3s;
         }
 
         .btn-payment {
             width: 100%;
-            padding: 16px;
+            padding: 14px;
             background: #22c55e;
             color: #fff;
             border: none;
             border-radius: 40px;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             transition: 0.3s;
-            margin-top: 14px;
+            margin-top: 12px;
         }
 
         .btn-payment:hover {
@@ -991,14 +1102,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
             border-bottom: 2px solid #e9edf4;
             transition: border-color 0.3s;
         }
 
         .bot-header h2 {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 800;
             color: #1a1a2e;
             transition: color 0.3s;
@@ -1011,13 +1122,13 @@
         .bot-header .back-btn {
             background: #f1f5f9;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 30px;
             font-weight: 600;
             color: #475569;
             cursor: pointer;
             transition: 0.2s;
-            font-size: 15px;
+            font-size: 13px;
         }
 
         .bot-header .back-btn:hover {
@@ -1026,38 +1137,38 @@
 
         .product-bot-card {
             background: #fef3c7;
-            border-radius: 18px;
-            padding: 30px 20px;
-            margin-bottom: 14px;
+            border-radius: 16px;
+            padding: 24px 16px;
+            margin-bottom: 12px;
             border: 2px solid #f59e0b;
             transition: 0.2s;
             text-align: center;
         }
 
         .product-bot-card .bot-icon {
-            font-size: 52px;
+            font-size: 42px;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .product-bot-card .bot-name {
             font-weight: 700;
-            font-size: 22px;
+            font-size: 19px;
             color: #1a1a2e;
             transition: color 0.3s;
         }
 
         .product-bot-card .bot-price {
             font-weight: 800;
-            font-size: 26px;
+            font-size: 22px;
             color: #f59e0b;
-            margin-top: 4px;
+            margin-top: 3px;
         }
 
         .product-bot-card .bot-desc {
-            font-size: 15px;
+            font-size: 13px;
             color: #64748b;
-            margin-top: 8px;
+            margin-top: 6px;
             transition: color 0.3s;
         }
 
@@ -1069,11 +1180,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 16px;
         }
 
         .payment-modal.show {
@@ -1082,9 +1193,9 @@
 
         .payment-modal .modal-content {
             background: #fff;
-            border-radius: 32px;
-            padding: 30px 24px;
-            max-width: 420px;
+            border-radius: 28px;
+            padding: 24px 20px;
+            max-width: 380px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
@@ -1094,11 +1205,11 @@
 
         .payment-modal .close-btn {
             position: absolute;
-            top: 14px;
-            right: 20px;
-            font-size: 28px;
+            top: 12px;
+            right: 16px;
+            font-size: 24px;
             cursor: pointer;
-            color: #64748b;
+            color: #94a3b8;
             background: none;
             border: none;
             transition: color 0.3s;
@@ -1109,111 +1220,33 @@
         }
 
         .payment-modal h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             color: #1a1a2e;
-            margin-bottom: 16px;
+            margin-bottom: 4px;
             text-align: center;
             transition: color 0.3s;
         }
 
-        .payment-option {
-            background: #f8fafc;
-            border: 2px solid #e9edf4;
-            border-radius: 16px;
-            padding: 16px;
-            margin-bottom: 12px;
-            transition: 0.2s;
-        }
-
-        .payment-option:hover {
-            border-color: #7c3aed;
-        }
-
-        .payment-option .pay-title {
-            font-weight: 700;
-            font-size: 16px;
-            color: #1a1a2e;
-            transition: color 0.3s;
-        }
-
-        .payment-option .pay-detail {
-            font-size: 14px;
-            color: #475569;
-            margin-top: 4px;
-            word-break: break-all;
-            transition: color 0.3s;
-        }
-
-        .payment-option .pay-detail strong {
-            color: #1a1a2e;
-            transition: color 0.3s;
-        }
-
-        .payment-option .copy-btn {
-            margin-top: 8px;
-            background: #7c3aed;
-            color: #fff;
-            border: none;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .payment-option .copy-btn:hover {
-            background: #5b21b6;
-        }
-
-        .payment-option .qr-placeholder {
-            margin-top: 10px;
-            padding: 10px;
-            background: #fff;
-            border-radius: 12px;
-            border: 2px dashed #cbd5e1;
+        .payment-modal .subtitle {
             text-align: center;
-            transition: background 0.3s, border-color 0.3s, color 0.3s;
-        }
-
-        .payment-option .qr-placeholder img {
-            width: 100%;
-            max-width: 250px;
-            display: block;
-            margin: 0 auto;
-            border-radius: 8px;
-        }
-
-        .payment-option .qr-placeholder p {
-            font-size: 12px;
+            font-size: 13px;
             color: #94a3b8;
-            margin-top: 8px;
+            margin-bottom: 14px;
         }
 
-        .payment-option .qr-placeholder a {
-            color: #7c3aed;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .payment-option .qr-placeholder a:hover {
-            text-decoration: underline;
-        }
-
-        /* Tombol Pilih Metode Pembayaran */
         .btn-metode {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             border: 2px solid #e9edf4;
-            border-radius: 16px;
+            border-radius: 14px;
             background: #f8fafc;
             cursor: pointer;
             transition: 0.3s;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 14px;
             color: #1a1a2e;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1232,26 +1265,85 @@
 
         .btn-metode .icon-dana {
             color: #22c55e;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .btn-metode .icon-qris {
             color: #7c3aed;
-            font-size: 20px;
+            font-size: 18px;
+        }
+
+        .metode-terpilih {
+            text-align: center;
+            padding: 6px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .metode-terpilih.dana {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .metode-terpilih.qris {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+
+        /* QRIS Image - KECIL & PROPORSIONAL */
+        #qrisImage {
+            margin-top: 8px;
+        }
+
+        #qrisImage .qr-placeholder {
+            padding: 8px;
+            background: #fff;
+            border-radius: 10px;
+            border: 2px dashed #cbd5e1;
+            max-width: 180px;
+            margin: 0 auto;
+        }
+
+        #qrisImage .qr-placeholder img {
+            width: 100%;
+            max-width: 160px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 6px;
+        }
+
+        #qrisImage .qr-placeholder p {
+            font-size: 10px;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        #qrisImage .qr-placeholder a {
+            color: #7c3aed;
+            font-weight: 600;
+            font-size: 11px;
+            text-decoration: none;
+        }
+
+        #qrisImage .qr-placeholder a:hover {
+            text-decoration: underline;
         }
 
         .btn-wa {
             width: 100%;
-            padding: 16px;
+            padding: 14px;
             background: #25D366;
             color: #fff;
             border: none;
             border-radius: 40px;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             transition: 0.3s;
-            margin-top: 14px;
+            margin-top: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1270,20 +1362,31 @@
         }
 
         .btn-wa i {
-            font-size: 22px;
+            font-size: 20px;
+        }
+
+        .payment-modal .footer-modal {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .payment-modal .footer-modal i {
+            color: #f59e0b;
         }
 
         /* NAVIGASI */
         .slide-nav {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 24px;
+            gap: 8px;
+            margin-top: 20px;
         }
 
         .slide-nav .dot {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: #cbd5e1;
             border: none;
@@ -1293,7 +1396,7 @@
 
         .slide-nav .dot.active {
             background: #7c3aed;
-            width: 32px;
+            width: 28px;
             border-radius: 20px;
         }
 
@@ -1303,15 +1406,15 @@
 
         .footer-info {
             text-align: center;
-            font-size: 14px;
+            font-size: 12px;
             color: #94a3b8;
-            margin-top: 16px;
+            margin-top: 14px;
             letter-spacing: 0.3px;
             transition: color 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
         }
 
@@ -1327,17 +1430,17 @@
 
         .theme-toggle {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 56px;
-            height: 56px;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: #7c3aed;
             color: #fff;
             border: none;
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
             transition: 0.3s;
             z-index: 999;
         }
@@ -1345,26 +1448,6 @@
         .theme-toggle:hover {
             transform: scale(1.1);
             background: #5b21b6;
-        }
-
-        /* Info metode terpilih */
-        .metode-terpilih {
-            text-align: center;
-            padding: 8px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-top: 8px;
-        }
-
-        .metode-terpilih.dana {
-            background: #dcfce7;
-            color: #16a34a;
-        }
-
-        .metode-terpilih.qris {
-            background: #eef2ff;
-            color: #4f46e5;
         }
     </style>
 </head>
@@ -1380,28 +1463,24 @@
         <div class="modal-content">
             <button class="close-btn" onclick="closePayment()">&times;</button>
             <h3><i class="fas fa-credit-card" style="color:#7c3aed;"></i> Pilih Metode Pembayaran</h3>
+            <p class="subtitle">Pilih metode lalu konfirmasi ke WhatsApp</p>
 
-            <p style="text-align:center;font-size:14px;color:#64748b;margin-bottom:16px;">
-                Pilih metode pembayaran lalu konfirmasi ke WhatsApp
-            </p>
-
-            <!-- Pilihan DANA -->
+            <!-- DANA -->
             <button class="btn-metode" id="btnDana" onclick="pilihMetode('dana')">
                 <span class="icon-dana"><i class="fas fa-wallet"></i></span>
                 DANA - 082381531460
             </button>
 
-            <!-- Pilihan QRIS -->
+            <!-- QRIS -->
             <button class="btn-metode" id="btnQris" onclick="pilihMetode('qris')">
                 <span class="icon-qris"><i class="fas fa-qrcode"></i></span>
                 QRIS (Scan di bawah)
             </button>
 
-            <!-- Tampilkan detail metode terpilih -->
             <div id="detailMetode"></div>
 
-            <!-- QRIS Image (hidden dulu) -->
-            <div id="qrisImage" style="display:none;margin-top:12px;">
+            <!-- QRIS Image - KECIL -->
+            <div id="qrisImage" style="display:none;">
                 <div class="qr-placeholder">
                     <img src="https://i.ibb.co.com/8L2B5p0p/qr-ID1025435087404-31-08-26-1788124804-1788124804995.jpg" 
                          alt="QRIS Dynan Store" />
@@ -1411,13 +1490,13 @@
                 </div>
             </div>
 
-            <!-- Tombol Konfirmasi WhatsApp -->
+            <!-- Tombol WA -->
             <button class="btn-wa" id="btnWa" disabled onclick="confirmWA()">
                 <i class="fab fa-whatsapp"></i> Konfirmasi Via WhatsApp
             </button>
 
-            <div style="text-align:center;margin-top:12px;font-size:13px;color:#94a3b8;">
-                <i class="fas fa-info-circle" style="color:#f59e0b;"></i> Kirim bukti transfer ke admin
+            <div class="footer-modal">
+                <i class="fas fa-info-circle"></i> Kirim bukti transfer ke admin
             </div>
         </div>
     </div>
@@ -1478,19 +1557,38 @@
                     <i class="fas fa-boxes"></i> Produk
                 </button>
 
+                <!-- ===== FORM ULASAN ===== -->
+                <div class="ulasan-form" id="ulasanForm">
+                    <h5><i class="fas fa-star" style="color:#fbbf24;"></i> Beri Rating & Ulasan</h5>
+                    <div class="star-rating" id="starRating">
+                        <button class="star-btn" data-star="1" onclick="setRating(1)">★</button>
+                        <button class="star-btn" data-star="2" onclick="setRating(2)">★</button>
+                        <button class="star-btn" data-star="3" onclick="setRating(3)">★</button>
+                        <button class="star-btn" data-star="4" onclick="setRating(4)">★</button>
+                        <button class="star-btn" data-star="5" onclick="setRating(5)">★</button>
+                    </div>
+                    <input type="text" id="ulasanNamaInput" placeholder="Nama Anda" maxlength="30" />
+                    <textarea id="ulasanTextInput" placeholder="Tulis ulasan Anda..." maxlength="200"></textarea>
+                    <button class="btn-kirim-ulasan" onclick="kirimUlasan()">
+                        <i class="fas fa-paper-plane"></i> Kirim Ulasan
+                    </button>
+                </div>
+
                 <div class="ulasan-section">
                     <div class="ulasan-header">
                         <h4><i class="fas fa-comment-dots" style="color:#7c3aed;"></i> Ulasan Terbaru</h4>
                         <span id="ulasanTime">Baru saja</span>
                     </div>
 
-                    <div class="ulasan-item" id="ulasanItem">
-                        <div class="ulasan-avatar" id="ulasanAvatar">?</div>
-                        <div class="ulasan-body">
-                            <div class="nama" id="ulasanNama">Belum Ada Ulasan</div>
-                            <div class="bintang" id="ulasanBintang">☆☆☆☆☆</div>
-                            <div class="teks" id="ulasanTeks">Belum ada ulasan</div>
-                            <div class="waktu" id="ulasanWaktu">--:--</div>
+                    <div id="ulasanList">
+                        <div class="ulasan-item" id="ulasanItem">
+                            <div class="ulasan-avatar" id="ulasanAvatar">?</div>
+                            <div class="ulasan-body">
+                                <div class="nama" id="ulasanNama">Belum Ada Ulasan</div>
+                                <div class="bintang" id="ulasanBintang">☆☆☆☆☆</div>
+                                <div class="teks" id="ulasanTeks">Belum ada ulasan</div>
+                                <div class="waktu" id="ulasanWaktu">--:--</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1548,7 +1646,7 @@
                     </button>
                 </div>
 
-                <div class="slide-nav" style="margin-top:18px;">
+                <div class="slide-nav" style="margin-top:16px;">
                     <button class="dot" onclick="goToSlide(0)"></button>
                     <button class="dot active" onclick="goToSlide(1)"></button>
                     <button class="dot" onclick="goToSlide(2)"></button>
@@ -1600,7 +1698,7 @@
 
                     <div class="order-row">
                         <label>Harga Satuan</label>
-                        <span id="hargaSatuan" style="font-weight:700;color:#f59e0b;font-size:18px;">Rp 5.000</span>
+                        <span id="hargaSatuan" style="font-weight:700;color:#f59e0b;font-size:16px;">Rp 5.000</span>
                     </div>
 
                     <div class="total-price" id="totalPrice">
@@ -1612,7 +1710,7 @@
                     </button>
                 </div>
 
-                <div class="slide-nav" style="margin-top:18px;">
+                <div class="slide-nav" style="margin-top:16px;">
                     <button class="dot" onclick="goToSlide(0)"></button>
                     <button class="dot" onclick="goToSlide(1)"></button>
                     <button class="dot active" onclick="goToSlide(2)"></button>
@@ -1655,7 +1753,7 @@
 
                     <div class="order-row">
                         <label>Harga per Bulan</label>
-                        <span style="font-weight:700;color:#f59e0b;font-size:18px;">Rp 15.000</span>
+                        <span style="font-weight:700;color:#f59e0b;font-size:16px;">Rp 15.000</span>
                     </div>
 
                     <div class="total-price" id="totalPriceBot">
@@ -1667,7 +1765,7 @@
                     </button>
                 </div>
 
-                <div class="slide-nav" style="margin-top:18px;">
+                <div class="slide-nav" style="margin-top:16px;">
                     <button class="dot" onclick="goToSlide(0)"></button>
                     <button class="dot" onclick="goToSlide(1)"></button>
                     <button class="dot" onclick="goToSlide(2)"></button>
@@ -1751,6 +1849,125 @@
         }
 
         updateSlide1();
+
+        // ==========================================
+        // ULASAN & RATING
+        // ==========================================
+        let selectedRating = 0;
+        let ulasanData = [];
+
+        function setRating(rating) {
+            selectedRating = rating;
+            document.querySelectorAll('.star-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i < rating);
+            });
+        }
+
+        function kirimUlasan() {
+            const nama = document.getElementById('ulasanNamaInput').value.trim() || 'Anonim';
+            const teks = document.getElementById('ulasanTextInput').value.trim();
+
+            if (selectedRating === 0) {
+                alert('Silakan pilih rating bintang terlebih dahulu! ⭐');
+                return;
+            }
+
+            if (!teks) {
+                alert('Silakan tulis ulasan Anda! 📝');
+                return;
+            }
+
+            const now = new Date();
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+            const dateStr = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+            const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+
+            const bintang = '★'.repeat(selectedRating) + '☆'.repeat(5 - selectedRating);
+
+            const ulasanBaru = {
+                nama: nama,
+                bintang: bintang,
+                teks: teks,
+                waktu: `${timeStr} - ${dateStr}`,
+                rating: selectedRating
+            };
+
+            // Simpan ke array
+            ulasanData.unshift(ulasanBaru);
+
+            // Update tampilan
+            renderUlasan();
+
+            // Update rating rata-rata
+            updateRatingRataRata();
+
+            // Reset form
+            document.getElementById('ulasanNamaInput').value = '';
+            document.getElementById('ulasanTextInput').value = '';
+            setRating(0);
+            document.querySelectorAll('.star-btn').forEach(btn => btn.classList.remove('active'));
+
+            alert('Terima kasih atas ulasannya! 🙏');
+        }
+
+        function renderUlasan() {
+            const container = document.getElementById('ulasanList');
+            container.innerHTML = '';
+
+            if (ulasanData.length === 0) {
+                container.innerHTML = `
+                    <div class="ulasan-item">
+                        <div class="ulasan-avatar">?</div>
+                        <div class="ulasan-body">
+                            <div class="nama">Belum Ada Ulasan</div>
+                            <div class="bintang">☆☆☆☆☆</div>
+                            <div class="teks">Belum ada ulasan</div>
+                            <div class="waktu">--:--</div>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            // Tampilkan 5 ulasan terbaru
+            const tampil = ulasanData.slice(0, 5);
+            tampil.forEach((u, index) => {
+                const div = document.createElement('div');
+                div.className = 'ulasan-item';
+                div.innerHTML = `
+                    <div class="ulasan-avatar">${u.nama.charAt(0).toUpperCase()}</div>
+                    <div class="ulasan-body">
+                        <div class="nama">${u.nama}</div>
+                        <div class="bintang">${u.bintang}</div>
+                        <div class="teks">${u.teks}</div>
+                        <div class="waktu">${u.waktu}</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function updateRatingRataRata() {
+            const total = ulasanData.length;
+            if (total === 0) {
+                document.getElementById('ratingNumber').innerHTML = `0.0 <small>/ 5</small>`;
+                document.getElementById('ulasanCount').textContent = '0';
+                document.getElementById('starsDisplay').textContent = '☆☆☆☆☆';
+                return;
+            }
+
+            const totalRating = ulasanData.reduce((sum, u) => sum + u.rating, 0);
+            const avg = totalRating / total;
+            const rounded = Math.round(avg * 10) / 10;
+
+            document.getElementById('ratingNumber').innerHTML = `${rounded.toFixed(1)} <small>/ 5</small>`;
+            document.getElementById('ulasanCount').textContent = total;
+
+            const fullStars = Math.round(avg);
+            const stars = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+            document.getElementById('starsDisplay').textContent = stars;
+        }
 
         // ==========================================
         // SLIDE 3 - ALIGHT MOTION
@@ -1865,7 +2082,6 @@
         function pilihMetode(metode) {
             metodePembayaran = metode;
 
-            // Reset semua
             document.getElementById('btnDana').classList.remove('selected');
             document.getElementById('btnQris').classList.remove('selected');
             document.getElementById('detailMetode').innerHTML = '';
